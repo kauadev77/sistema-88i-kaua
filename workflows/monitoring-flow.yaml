@@ -1,0 +1,15 @@
+id: monitoring
+namespace: dev
+tasks:
+  - id: collect-metrics
+    type: io.kestra.core.tasks.log.Log
+    message: Coletando métricas de sinistros
+
+  - id: alert
+    type: io.kestra.core.tasks.log.Log
+    message: Enviando alertas se necessário
+
+triggers:
+  - id: schedule
+    type: io.kestra.core.models.triggers.types.Schedule
+    cron: "*/30 * * * *"

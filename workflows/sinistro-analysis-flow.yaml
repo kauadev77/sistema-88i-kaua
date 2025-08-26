@@ -1,0 +1,28 @@
+id: sinistro-analysis
+namespace: dev
+tasks:
+  - id: validate-input
+    type: io.kestra.core.tasks.log.Log
+    message: Validando entrada do sinistro
+
+  - id: analyze-document
+    type: io.kestra.core.tasks.scripts.Python
+    commands:
+      - python agents/document_agent.py
+
+  - id: detect-fraud
+    type: io.kestra.core.tasks.scripts.Python
+    commands:
+      - python agents/fraud_agent.py
+
+  - id: decide
+    type: io.kestra.core.tasks.scripts.Python
+    commands:
+      - python agents/supervisor_agent.py
+
+  - id: save-result
+    type: io.kestra.plugin.jdbc.postgresql.Query
+
+  - id: notify
+    type: io.kestra.core.tasks.log.Log
+    message: Notificando resultado
