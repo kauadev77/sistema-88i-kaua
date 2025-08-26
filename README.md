@@ -17,6 +17,3 @@ Este é um protótipo simples (cerca de 40% completo) para o teste técnico da O
 - Envie um sinistro via POST /sinistros
 - Consulte status via GET /sinistros/{id}
 
-TODO: Adicionar mais detalhes na documentação.
-"# sistema-88i-kaua" 
-"# sistema-88i-kaua" 
